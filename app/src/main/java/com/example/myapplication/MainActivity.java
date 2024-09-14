@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -22,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private Button count;
+    private Button count, button1,button2,button3,button4;
     private EditText hint1, hint2;
+    private TextView question, answer;
+    public int answerID = 1;
+    public int correctanswers = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         hint1 = findViewById(R.id.hint1);
         hint2 = findViewById(R.id.hint2);
         count = findViewById(R.id.count);
@@ -57,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -85,4 +86,43 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+    public void buttonPressed(View v){
+        String name = ((Button)v).getText().toString();
+        if(name.equals(getString(getResources().getIdentifier("question" + answerID + "_5", "string", getPackageName())))){
+            correctanswers++;
+        } else{
+
+        }
+        if(answerID == 10){
+            Snackbar.make(v, "Поздравляем, вы завершили тест на " + correctanswers + "/10 баллов", Snackbar.LENGTH_LONG).show();
+            return;
+        }
+        answerID++;
+        update();
+    }
+
+    public void update(){
+        if(question == null)
+            question = findViewById(R.id.question);
+        if(button1 == null)
+            button1 = findViewById(R.id.button1);
+        if(button2 == null)
+            button2 = findViewById(R.id.button2);
+        if(button3 == null)
+            button3 = findViewById(R.id.button3);
+        if(button4 == null)
+            button4 = findViewById(R.id.button4);
+        if(answer == null)
+            answer = findViewById(R.id.answer);
+
+        question.setText(getString(getResources().getIdentifier("question" + answerID + "_0", "string", getPackageName())));
+        button1.setText(getString(getResources().getIdentifier("question" + answerID + "_1", "string", getPackageName())));
+        button2.setText(getString(getResources().getIdentifier("question" + answerID + "_2", "string", getPackageName())));
+        button3.setText(getString(getResources().getIdentifier("question" + answerID + "_3", "string", getPackageName())));
+        button4.setText(getString(getResources().getIdentifier("question" + answerID + "_4", "string", getPackageName())));
+        answer.setText("Правильных Ответов: " + correctanswers);
+    }
+
 }

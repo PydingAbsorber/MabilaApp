@@ -11,6 +11,77 @@
     <string name="hint_1">Write first number</string>
     <string name="hint_2">Write second number</string>
 
+    <string name="question1_0">Кто написал роман «Преступление и наказание»?</string>
+    <string name="question1_1">Лев Толстой</string>
+    <string name="question1_2">Фёдор Достоевский</string>
+    <string name="question1_3">Александр Пушкин</string>
+    <string name="question1_4">Антон Чехов</string>
+    <string name="question1_5">Фёдор Достоевский</string>
+
+    <string name="question2_0">Как называется столица Италии?</string>
+    <string name="question2_1">Мадрид</string>
+    <string name="question2_2">Рим</string>
+    <string name="question2_3">Париж</string>
+    <string name="question2_4">Лондон</string>
+    <string name="question2_5">Рим</string>
+
+    <string name="question3_0">Кто является автором музыки к опере «Щелкунчик»?</string>
+    <string name="question3_1">Иоганн Себастьян Бах</string>
+    <string name="question3_2">Пётр Чайковский</string>
+    <string name="question3_3">Вольфганг Амадей Моцарт</string>
+    <string name="question3_4">Людвиг ван Бетховен</string>
+    <string name="question3_5">Пётр Чайковский</string>
+
+    <string name="question4_0">Какое животное является символом Австралии?</string>
+    <string name="question4_1">Кенгуру</string>
+    <string name="question4_2">Коала</string>
+    <string name="question4_3">Эму</string>
+    <string name="question4_4">Вомбат</string>
+    <string name="question4_5">Кенгуру</string>
+
+    <string name="question5_0">В каком году произошла битва при Ватерлоо?</string>
+    <string name="question5_1">1812</string>
+    <string name="question5_2">1815</string>
+    <string name="question5_3">1799</string>
+    <string name="question5_4">1804</string>
+    <string name="question5_5">1815</string>
+
+    <string name="question6_0">Какое химическое вещество отвечает за ржавчину на металле?</string>
+    <string name="question6_1">Водород</string>
+    <string name="question6_2">Углерод</string>
+    <string name="question6_3">Железо</string>
+    <string name="question6_4">Кислород</string>
+    <string name="question6_5">Кислород</string>
+
+    <string name="question7_0">Какая планета известна как «Красная планета»?</string>
+    <string name="question7_1">Венера</string>
+    <string name="question7_2">Марс</string>
+    <string name="question7_3">Юпитер</string>
+    <string name="question7_4">Сатурн</string>
+    <string name="question7_5">Марс</string>
+
+    <string name="question8_0">Какой город является крупнейшим в мире по населению?</string>
+    <string name="question8_1">Токио</string>
+    <string name="question8_2">Шанхай</string>
+    <string name="question8_3">Нью-Йорк</string>
+    <string name="question8_4">Мумбаи</string>
+    <string name="question8_5">Токио</string>
+
+    <string name="question9_0">Какая страна первой отправила человека в космос?</string>
+    <string name="question9_1">США</string>
+    <string name="question9_2">Китай</string>
+    <string name="question9_3">СССР</string>
+    <string name="question9_4">Франция</string>
+    <string name="question9_5">СССР</string>
+
+    <string name="question10_0">Какого числа нет в счёте Древних Русов</string>
+    <string name="question10_1">Ноль</string>
+    <string name="question10_2">Полушка</string>
+    <string name="question10_3">Трёшка</string>
+    <string name="question10_4">Четвертушка</string>
+    <string name="question10_5">Трёшка</string>
+
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
