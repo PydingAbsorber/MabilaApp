@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         } else{
 
         }
-        if(answerID == 10){
+        if(answerID >= 10){
             Snackbar.make(v, "Поздравляем, вы завершили тест на " + correctanswers + "/10 баллов", Snackbar.LENGTH_LONG).show();
             return;
         }

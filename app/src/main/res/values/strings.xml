@@ -82,7 +82,7 @@
     <string name="question10_5">Трёшка</string>
 
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">Counter (Lab1)</string>
+    <string name="menu_gallery">Questions (Lab2)</string>
+    <string name="menu_slideshow">News (Lab3)</string>
 </resources>
