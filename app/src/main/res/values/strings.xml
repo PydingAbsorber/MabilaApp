@@ -81,8 +81,36 @@
     <string name="question10_4">Четвертушка</string>
     <string name="question10_5">Трёшка</string>
 
+    <string name="article1_title">Biden will wait for Congress to return before taking any major steps on US-Saudi relationship, national security adviser says</string>
+
+    <string name="article2_title">White House economic adviser says US is ‘better positioned than most other countries’ to mitigate inflation</string>
+
+    <!-- News -->
+    <string name="title1">Focus on abortion rights may not be enough to save Democrats in the face of economic concerns</string>
+    <string name="category1">Politic</string>
+    <string name="portal1">BBC News</string>
+    <string name="logo1">https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1200px-BBC_News.svg.png</string>
+    <string name="likes1">345435</string>
+    <string name="comments1">3452</string>
+
+    <string name="title2">Why we may not know who controls the Senate on November 8</string>
+    <string name="category2">Politic</string>
+    <string name="portal2">BBC News</string>
+    <string name="logo2">https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1200px-BBC_News.svg.png</string>
+    <string name="likes2">12</string>
+    <string name="comments2">3244</string>
+
+    <string name="title3">Long Covid and smell: How to get the treatment you need</string>
+    <string name="category3">Health</string>
+    <string name="portal3">BBC News</string>
+    <string name="logo3">https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/BBC_News.svg/1200px-BBC_News.svg.png</string>
+    <string name="likes3">33211</string>
+    <string name="comments3">5566423</string>
 
     <string name="menu_home">Counter (Lab1)</string>
     <string name="menu_gallery">Questions (Lab2)</string>
     <string name="menu_slideshow">News (Lab3)</string>
+    <string name="featured">Featured</string>
+    <string name="news">News</string>
+    <string name="see_all">See All</string>
 </resources>

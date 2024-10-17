@@ -19,6 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
+import org.json.JSONException;
+
+import java.io.FileNotFoundException;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -32,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +125,10 @@ public class MainActivity extends AppCompatActivity {
         button3.setText(getString(getResources().getIdentifier("question" + answerID + "_3", "string", getPackageName())));
         button4.setText(getString(getResources().getIdentifier("question" + answerID + "_4", "string", getPackageName())));
         answer.setText("Правильных Ответов: " + correctanswers);
+    }
+
+    public void showNews(View v){
+
     }
 
 }
