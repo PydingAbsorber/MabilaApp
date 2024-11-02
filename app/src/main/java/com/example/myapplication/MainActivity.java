@@ -7,6 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.myapplication.ui.rss.DownloadRssTask;
+import com.example.myapplication.ui.rss.RSSAdapter;
+import com.example.myapplication.ui.rss.RSSFeed;
+import com.example.myapplication.ui.rss.RSSItem;
+import com.example.myapplication.ui.rss.RSSRoot;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -16,12 +21,17 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
-import org.json.JSONException;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
-import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView question, answer;
     public int answerID = 1;
     public int correctanswers = 0;
+
+    private RecyclerView recyclerView;
+    private RSSAdapter adapter;
+    private List<RSSItem> rssItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        hint1 = findViewById(R.id.hint1);
-        hint2 = findViewById(R.id.hint2);
-        count = findViewById(R.id.count);
-        count.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(hint1.getText() != null && hint2.getText() != null) {
-                    float num1 = Float.parseFloat(hint1.getText().toString());
-                    float num2 = Float.parseFloat(hint2.getText().toString());
-                    float num3 = num1 + num2;
-                    Snackbar.make(v, String.valueOf(num3), Snackbar.LENGTH_LONG).show();
-                }
-            }
-        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -73,6 +73,41 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        /////////////
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter = new RSSAdapter(new ArrayList<>());
+        recyclerView.setAdapter(adapter);
+
+        Button addButton = findViewById(R.id.btnAddRSS);
+        addButton.setOnClickListener(new View.OnClickListener() {      //https://themeisle.com/blog/feed/
+            @Override
+            public void onClick(View v) {
+                new DownloadRssTask(MainActivity.this).execute("https://sheffrecept.ru/feed/");  //https://news.yam.md/ro/rss
+            }
+        });
+    }
+
+    public List<RSSItem> parseRSS(InputStream inputStream) {
+        try {
+            Serializer serializer = new Persister();
+            RSSFeed rssFeed = serializer.read(RSSFeed.class, inputStream);
+            if (rssFeed.getChannel() != null) {
+                return rssFeed.getChannel().getItems();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+    public void updateRssItems(List<RSSItem> rssItems) {
+        adapter.updateItems(rssItems);
     }
 
     @Override

@@ -107,9 +107,9 @@
     <string name="likes3">33211</string>
     <string name="comments3">5566423</string>
 
-    <string name="menu_home">Counter (Lab1)</string>
-    <string name="menu_gallery">Questions (Lab2)</string>
-    <string name="menu_slideshow">News (Lab3)</string>
+    <string name="menu_home">Counter (Lab3)</string>
+    <string name="menu_gallery">Questions (Lab1)</string>
+    <string name="menu_slideshow">News (Lab2)</string>
     <string name="featured">Featured</string>
     <string name="news">News</string>
     <string name="see_all">See All</string>
