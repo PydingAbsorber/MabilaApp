@@ -2,9 +2,12 @@ package com.example.myapplication.ui.rss;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.R;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
@@ -22,15 +25,35 @@ import java.util.List;
 public class DownloadRssTask extends AsyncTask<String, Void, List<RSSItem>> {
 
     private WeakReference<MainActivity> activityReference;
+    private ProgressBar progressBar;
 
     public DownloadRssTask(MainActivity context) {
         this.activityReference = new WeakReference<>(context);
+        this.progressBar = context.findViewById(R.id.progressBar);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setProgress(0);
     }
 
     @Override
     protected List<RSSItem> doInBackground(String... urls) {
         try {
             URL url = new URL(urls[0]);
+
+            int totalSteps = 10;
+            for (int i = 0; i < totalSteps; i++) {
+                try {
+                    Thread.sleep(500);
+                    progressBar.setProgress((i + 1) * (100 / totalSteps));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = new BufferedInputStream(connection.getInputStream());
 
@@ -54,6 +77,7 @@ public class DownloadRssTask extends AsyncTask<String, Void, List<RSSItem>> {
     @Override
     protected void onPostExecute(List<RSSItem> rssItems) {
         MainActivity activity = activityReference.get();
+        progressBar.setVisibility(View.INVISIBLE);
         if (activity == null || activity.isFinishing()) return;
 
         if (rssItems == null) {

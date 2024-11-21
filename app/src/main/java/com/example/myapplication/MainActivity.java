@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.myapplication.ui.rss.DownloadRssTask;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RSSAdapter adapter;
     private List<RSSItem> rssItemList;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +55,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show();
-            }
-        });
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -81,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new RSSAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         Button addButton = findViewById(R.id.btnAddRSS);
         addButton.setOnClickListener(new View.OnClickListener() {      //https://themeisle.com/blog/feed/
